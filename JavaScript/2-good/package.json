@@ -1,9 +1,0 @@
-{
-  "name": "grasp-bad-controller",
-  "version": "1.0.0",
-  "description": "GRASP: good creator example",
-  "main": "main.js",
-  "dependencies": {
-    "pg": "^8.5.1"
-  }
-}

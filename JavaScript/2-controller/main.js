@@ -30,7 +30,7 @@ const routing = {
     },
 
     async put(id, { login, password }) {
-      const sql = 'UPDATE users SET login = $1, password = $2 WHERE user = $3';
+      const sql = 'UPDATE users SET login = $1, password = $2 WHERE id = $3';
       const passwordHash = await hash(password);
       return pool.query(sql, [login, passwordHash, id]);
     },
@@ -52,10 +52,10 @@ http.createServer(async (req, res) => {
   const src = handler.toString();
   const signature = src.substring(0, src.indexOf(')'));
   const args = [];
-  if (signature.includes('(id, ')) args.push(id);
+  if (signature.includes('(id')) args.push(id);
   if (signature.includes('{')) args.push(await receiveArgs(req));
   console.log(`${socket.remoteAddress} ${method} ${url}`);
-  const result = await handler(id, args);
+  const result = await handler(...args);
   res.end(JSON.stringify(result.rows));
 }).listen(PORT);
 
