@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports = (root, port) => {
-  const server = http.createServer(async (req, res) => {
+  http.createServer(async (req, res) => {
     const url = req.url === '/' ? '/index.html' : req.url;
     const filePath = path.join(root, url);
     try {

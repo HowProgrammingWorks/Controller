@@ -13,8 +13,6 @@ module.exports = (routing, port) => {
       if (!entity) return connection.send('"Not found"');
       const handler = entity[method];
       if (!handler) return connection.send('"Not found"');
-      const src = handler.toString();
-      const signature = src.substring(0, src.indexOf(')'));
       console.log(`${req.socket.remoteAddress} ${name}.${method}`);
       try {
         const result = await handler(...args);
