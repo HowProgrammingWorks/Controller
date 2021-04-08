@@ -9,3 +9,17 @@ INSERT INTO "users" ("login", "password") VALUES
 -- marcus/marcus
 -- user/nopassword
 -- iskandar/zulqarnayn
+
+INSERT INTO "country" ("name") VALUES
+  ('Soviet Union'),
+  ('People''s Republic of China'),
+  ('Vietnam'),
+  ('Cuba');
+
+INSERT INTO "city" ("name", "country") VALUES
+  ('Beijing', 2),
+  ('Wuhan', 2),
+  ('Kiev', 1),
+  ('Havana', 4),
+  ('Hanoi', 3),
+  ('Kaliningrad', 1);
