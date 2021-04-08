@@ -1,7 +1,9 @@
 {
   "name": "grasp-bad-controller",
   "version": "1.0.0",
-  "description": "GRASP: bad creator example",
+  "description": "GRASP: bad controller example",
+  "license": "MIT",
+  "private": true,
   "main": "main.js",
   "dependencies": {
     "express": "^4.17.1",
