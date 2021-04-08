@@ -25,13 +25,15 @@ const scaffold = (structure) => {
 
 const api = scaffold({
   user: {
+    create: ['record'],
     read: ['id'],
+    update: ['id', 'record'],
+    delete: ['id'],
+    find: ['mask'],
   }
 });
 
-const scenario = async () => {
+socket.addEventListener('open', async () => {
   const data = await api.user.read(3);
   console.dir({ data });
-};
-
-setTimeout(scenario, 1000);
+});
