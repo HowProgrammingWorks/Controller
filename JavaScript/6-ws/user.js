@@ -23,4 +23,9 @@ module.exports = {
   delete(id) {
     return users.delete(id);
   },
+
+  find(mask) {
+    const sql = 'SELECT login from users where login like $1';
+    return users.query(sql, [mask]);
+  },
 };
