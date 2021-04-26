@@ -22,7 +22,7 @@ module.exports = (table) => ({
     return pool.query(`${sql} WHERE id = $1`, [id]);
   },
 
-  async create(record) {
+  async create({ ...record }) {
     const keys = Object.keys(record);
     const nums = new Array(keys.length);
     const data = new Array(keys.length);
@@ -37,7 +37,7 @@ module.exports = (table) => ({
     return pool.query(sql, data);
   },
 
-  async update(id, record) {
+  async update(id, { ...record }) {
     const keys = Object.keys(record);
     const updates = new Array(keys.length);
     const data = new Array(keys.length);
@@ -53,7 +53,7 @@ module.exports = (table) => ({
   },
 
   delete(id) {
-    const sql = 'DELETE FROM ${table} WHERE id = $1';
+    const sql = `DELETE FROM ${table} WHERE id = $1`;
     return pool.query(sql, [id]);
   },
 });
