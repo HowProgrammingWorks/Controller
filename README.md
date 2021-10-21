@@ -1,2 +1,1 @@
-# ControllerGRASP
-GRASP: Controller principle
+# GRASP: Controller principle
