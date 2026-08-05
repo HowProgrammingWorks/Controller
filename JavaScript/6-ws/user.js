@@ -25,7 +25,7 @@ module.exports = {
   },
 
   find(mask) {
-    const sql = 'SELECT login from users where login like $1';
+    const sql = 'SELECT login FROM users WHERE login LIKE $1';
     return users.query(sql, [mask]);
   },
 };
